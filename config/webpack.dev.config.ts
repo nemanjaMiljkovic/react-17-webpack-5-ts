@@ -50,7 +50,7 @@ const config: webpack.Configuration = {
 				parser: { dataUrlCondition: { maxSize: imageInlineSizeLimit } },
 			},
 			{
-				test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,
+				test: [/\.woff2?(\?v=\d+\.\d+\.\d+)?$/, /\.eot?(\?v=\d+\.\d+\.\d+)?$/],
 
 				type: "asset",
 				parser: { dataUrlCondition: { maxSize: fontsInlineSizeLimit } },
@@ -69,7 +69,7 @@ const config: webpack.Configuration = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: "src/public/index.html",
+			template: "public/index.html",
 		}),
 
 		new ESLintPlugin({
